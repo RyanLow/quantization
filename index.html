@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Image Quantization</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Ryan Low">
+    <meta name="description" content="An image quantization tool that uses the k-nearest neighbors algorithm.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/rl-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/rl-16.png">
+    <style>
+        body {
+            color: white;
+            background-color: #202020;
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            padding: 30px;
+        }
+
+        #header h2 {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+        }
+
+        #controller, #display {
+            text-align: center;
+        }
+
+        #display img {
+            width: 75%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <h2>Image Quantization</h2>
+        <div id="controller">
+            <input type="range" id="slider" min="1" max="100" value="100">
+            <input type="file" id="upload" accept=".png, .jpg, .jpeg">
+            <button id="download">Download</button>
+        </div>
+    </div>
+    <div id="display">
+        <img src="images/toledo.JPG">
+    </div>
+
+    <script src="scripts/underscore-esm-min.js"></script>
+    <script src="scripts/index.js"></script>
+</body>
+
+</html>
