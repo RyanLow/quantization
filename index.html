@@ -16,16 +16,15 @@
             color: white;
             background-color: #202020;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            margin: 0 0 30px;
+            margin: 30px;
             padding: 0;
         }
 
         #header {
-            padding: 30px;
+            position: absolute;
         }
 
         h3, h6 {
-            position: absolute;
             margin: 0;
             padding: 0;
         }
@@ -35,20 +34,29 @@
             color: white;
         }
 
-        input, button {
-            font-family: inherit;
-        }
-
         #controller {
             text-align: center;
+            margin-bottom: 30px;
+        }
+
+        input, button {
+            font-family: inherit;
         }
 
         #output {
             display: block;
             margin: 0 auto;
-            width: 75vw;
-            height: 75vh;
+            max-width: 75vw;
+            max-height: 75vh;
             object-fit: contain;
+        }
+
+        @media only screen and (max-width: 900px) {
+            #header {
+                position: relative;
+                text-align: center;
+                margin-bottom: 15px;
+            }
         }
     </style>
 </head>
@@ -56,17 +64,19 @@
 <body>
     <div id="header">
         <h3><a href="/">Image Quantization</a></h3>
+        <h6 id="status" style="visibility: hidden">Loading...</h6>
+    </div>
+    <div id="app">
         <div id="controller">
-            k = <input type="text" id="kbox" value="20" size="5">
+            k = <input type="text" id="kbox" value="10" size="5">
             <button id="quantize">Quantize</button>
             <button id="reset">Reset Image</button>
             <input type="file" id="upload" accept=".png, .jpg, .jpeg" hidden>
             <button onclick="document.getElementById('upload').click()">Upload Image</button>
             <button id="download">Download</button>
         </div>
-        <h6 id="status" style="visibility: hidden">Loading...</h6>
+        <canvas id="output"></canvas>
     </div>
-    <canvas id="output"></canvas>
     <script src="scripts/lodash.min.js"></script>
     <script src="scripts/index.js"></script>
 </body>
